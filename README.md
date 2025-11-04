@@ -72,11 +72,11 @@ O foco deste projeto é demonstrar boas práticas de desenvolvimento backend, in
 
 1. **Clonar o repositório:**
    ```bash
-   git clone https://github.com/seuusuario/agendamento-cabelereiro-api.git
+   git clone https://github.com/seuusuario/barbershop-agendamento-cabelereiro-api.git
 
 2. **Entrar na pasta do projeto:**
 
-cd agendamento-cabelereiro-api
+```cd barbershop-agendamento-cabelereiro-api```
 
 
 3. **Configurar o banco de dados (application.properties ou application.yml):**
@@ -89,7 +89,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 4. **Executar o projeto:**
 
-mvn spring-boot:run
+```mvn spring-boot:run```
 
 
 5. **Acessar a documentação Swagger:**
@@ -115,7 +115,9 @@ DELETE	/clientes/{id}	Excluir cliente
 GET	/cortes	Listar cortes disponíveis
 POST	/agendamentos	Criar um novo agendamento
 POST	/auth/login	Autenticação e geração de token JWT
-🧩 Organização de Pacotes (sugestão)
+
+🧩 **Organização de Pacotes**
+```
 src/main/java/com/seuprojeto/agendamento
 │
 ├── config/          # Configurações (CORS, Swagger, Security)
@@ -125,6 +127,7 @@ src/main/java/com/seuprojeto/agendamento
 ├── repository/      # Repositórios Spring Data
 ├── service/         # Regras de negócio
 └── security/        # JWT e autenticação
+```
 
 🧠 **Aprendizados e Objetivo**
 
