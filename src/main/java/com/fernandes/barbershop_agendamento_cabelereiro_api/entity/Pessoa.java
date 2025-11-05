@@ -1,15 +1,13 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Builder
@@ -24,4 +22,10 @@ public class Pessoa implements Serializable {
     private String nome;
     private String cpf;
     private String telefone;
+
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    private List<Plano> planos;
+
+    @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
+    private List<Agenda> agendas;
 }

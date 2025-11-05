@@ -1,9 +1,6 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,4 +22,16 @@ public class Agenda implements Serializable {
     private LocalDateTime dataHora;
     private double valor;
     private boolean pago;
+
+    @ManyToOne
+    @JoinColumn(name = "pessoa_id")
+    private Pessoa pessoa;
+
+    @ManyToOne
+    @JoinColumn(name = "corte_id")
+    private Corte corte;
+
+    @ManyToOne
+    @JoinColumn(name = "plano_id", nullable = true)
+    private Plano plano;
 }
