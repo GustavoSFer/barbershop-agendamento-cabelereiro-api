@@ -26,6 +26,6 @@ public class Pessoa implements Serializable {
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<Plano> planos;
 
-    @OneToMany(mappedBy = "agenda", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<Agenda> agendas;
 }
