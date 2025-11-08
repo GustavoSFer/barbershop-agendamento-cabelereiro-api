@@ -11,6 +11,5 @@ import org.springframework.http.HttpStatus;
 public class StartHandleException {
 
     private String error;
-    private String msg;
     private HttpStatus status;
 }
