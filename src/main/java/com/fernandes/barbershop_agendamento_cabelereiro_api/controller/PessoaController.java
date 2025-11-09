@@ -45,4 +45,11 @@ public class PessoaController {
 
         return ResponseEntity.ok().body(pessoaAtualizada);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePessoa(@PathVariable Long id) {
+        pessoaservice.excluir(id);
+
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
