@@ -26,4 +26,7 @@ public class Plano implements Serializable {
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
+    public boolean getAtivo() {
+        return this.ativo;
+    }
 }
