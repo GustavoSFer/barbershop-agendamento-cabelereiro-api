@@ -1,12 +1,14 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.service;
 
 import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Plano;
+import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.PlanoException.PlanoNotFoundException;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.repository.PlanoRepository;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.service.interfaces.PlanoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlanoImpl implements PlanoInterface {
@@ -26,7 +28,9 @@ public class PlanoImpl implements PlanoInterface {
 
     @Override
     public Plano findById(Long id) {
-        return null;
+        Optional<Plano> plano = planoRepository.findById(id);
+
+        return plano.orElseThrow(() -> new PlanoNotFoundException("Plano não encontrado!"));
     }
 
     @Override
