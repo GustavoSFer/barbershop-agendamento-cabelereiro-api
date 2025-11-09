@@ -1,5 +1,6 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.exception;
 
+import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.PlanoException.PlanoNotFoundException;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.pessoaException.PessoaNotFoundException;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(PessoaNotFoundException.class)
     public ResponseEntity<StartHandleException> pessoaNotFount(PessoaNotFoundException e) {
+        StartHandleException error = new StartHandleException(e.getMessage(), HttpStatus.NOT_FOUND);
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(PlanoNotFoundException.class)
+    public ResponseEntity<StartHandleException> pessoaNotFount(PlanoNotFoundException e) {
         StartHandleException error = new StartHandleException(e.getMessage(), HttpStatus.NOT_FOUND);
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
