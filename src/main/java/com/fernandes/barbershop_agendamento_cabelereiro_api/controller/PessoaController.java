@@ -38,4 +38,11 @@ public class PessoaController {
 
         return ResponseEntity.ok().body(pessoa);
     }
+
+    @PutMapping
+    public ResponseEntity<Pessoa> updatePessoa(@Valid @RequestBody Pessoa pessoa) {
+        Pessoa pessoaAtualizada = pessoaservice.update(pessoa);
+
+        return ResponseEntity.ok().body(pessoaAtualizada);
+    }
 }
