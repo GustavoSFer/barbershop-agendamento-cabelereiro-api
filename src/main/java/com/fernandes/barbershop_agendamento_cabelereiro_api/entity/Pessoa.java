@@ -1,5 +1,6 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -30,9 +31,11 @@ public class Pessoa implements Serializable {
     @Size(min = 10, max = 11)
     private String telefone;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<Plano> planos;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
     private List<Agenda> agendas;
 }

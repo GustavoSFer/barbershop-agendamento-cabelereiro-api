@@ -22,7 +22,7 @@ public class PessoaImpl implements PessoaInterface {
     }
 
     @Override
-    public List<Pessoa> pessoas() {
+    public List<Pessoa> findAll() {
         return pessoaRepository.findAll();
     }
 

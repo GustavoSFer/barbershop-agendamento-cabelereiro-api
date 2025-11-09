@@ -8,7 +8,7 @@ import java.util.List;
 public interface PessoaInterface {
 
     Pessoa create(Pessoa pessoa);
-    List<Pessoa> pessoas();
+    List<Pessoa> findAll();
     Pessoa findById(Long id);
     Pessoa update(Pessoa pessoa);
     void excluir(Long id);
