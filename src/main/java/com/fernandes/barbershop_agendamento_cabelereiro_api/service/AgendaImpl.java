@@ -3,7 +3,6 @@ package com.fernandes.barbershop_agendamento_cabelereiro_api.service;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Agenda;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.AgendaException.AgendaNotFoundException;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.repository.AgendaRepository;
-import com.fernandes.barbershop_agendamento_cabelereiro_api.repository.agendaRepository;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.service.interfaces.AgendaInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

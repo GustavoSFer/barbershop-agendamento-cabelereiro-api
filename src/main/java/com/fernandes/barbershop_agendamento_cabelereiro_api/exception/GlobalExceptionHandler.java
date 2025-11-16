@@ -1,5 +1,6 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.exception;
 
+import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.AgendaException.AgendaNotFoundException;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.PlanoException.PlanoNotFoundException;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.corteException.CorteNotFoundException;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.pessoaException.PessoaNotFoundException;
@@ -51,6 +52,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(CorteNotFoundException.class)
     public ResponseEntity<StartHandleException> corteNotFound( CorteNotFoundException e) {
+        StartHandleException error = new StartHandleException(e.getMessage(), HttpStatus.NOT_FOUND);
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(AgendaNotFoundException.class)
+    public ResponseEntity<StartHandleException> agendaNotFound( AgendaNotFoundException e) {
         StartHandleException error = new StartHandleException(e.getMessage(), HttpStatus.NOT_FOUND);
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
