@@ -1,5 +1,6 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.controller;
 
+import com.fernandes.barbershop_agendamento_cabelereiro_api.dto.AgendamentoDTO;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Agenda;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.service.interfaces.AgendaInterface;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.service.interfaces.AgendaInterface;
@@ -20,8 +21,8 @@ public class AgendaController {
     private AgendaInterface agendaService;
 
     @PostMapping
-    public ResponseEntity<Agenda> create(@Valid @RequestBody Agenda agenda) {
-        Agenda agendaCriada = agendaService.create(agenda);
+    public ResponseEntity<Agenda> create(@Valid @RequestBody AgendamentoDTO agendamentoDTO) {
+        Agenda agendaCriada = agendaService.create(agendamentoDTO);
 
         return ResponseEntity.created(URI.create("/agendas")).body(agendaCriada);
     }

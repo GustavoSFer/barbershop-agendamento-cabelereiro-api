@@ -37,10 +37,6 @@ public class PlanoImpl implements PlanoInterface {
     public Plano update(Plano plano) {
         Plano planoBanco = findById(plano.getId());
 
-        planoBanco.setNome(plano.getNome());
-        planoBanco.setValor(plano.getValor());
-        planoBanco.setAtivo(plano.getAtivo());
-
         return planoRepository.save(planoBanco);
     }
 

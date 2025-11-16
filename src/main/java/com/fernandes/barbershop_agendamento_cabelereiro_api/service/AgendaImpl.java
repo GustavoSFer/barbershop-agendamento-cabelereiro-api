@@ -1,9 +1,7 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.service;
 
-import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Agenda;
-import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Corte;
-import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Pessoa;
-import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Plano;
+import com.fernandes.barbershop_agendamento_cabelereiro_api.dto.AgendamentoDTO;
+import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.*;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.exception.AgendaException.AgendaNotFoundException;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.repository.AgendaRepository;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.service.interfaces.AgendaInterface;
@@ -32,22 +30,11 @@ public class AgendaImpl implements AgendaInterface {
     private PlanoInterface planoInterface;
 
     @Override
-    public Agenda create(Agenda agenda) {
-        Pessoa pessoa = pessoaInterface.findById(agenda.getPessoa().getId());
-        Corte corte = null;
-        if (agenda.getCorte() != null && agenda.getCorte().getId() != null) {
-            corte = corteInterface.findById(agenda.getCorte().getId());
-        }
+    public Agenda create(AgendamentoDTO agendamentoDTO) {
+        Pessoa pessoa = pessoaInterface.findById(agendamentoDTO.pessoaid());
+        Corte corte = corteInterface.findById(agendamentoDTO.corteId());
 
-        Plano plano = null;
-        if (agenda.getPlano() != null && agenda.getPlano().getId() != null) {
-            plano = planoInterface.findById(agenda.getPlano().getId());
-        }
-
-        agenda.setPessoa(pessoa);
-        agenda.setPlano(plano);
-        agenda.setCorte(corte);
-        return agendaRepository.save(agenda);
+        return null;
     }
 
     @Override
@@ -67,11 +54,8 @@ public class AgendaImpl implements AgendaInterface {
         Agenda agendaBanco = findById(agenda.getId());
 
         agendaBanco.setCorte(agenda.getCorte());
-        agendaBanco.setPago(agenda.isPago());
         agendaBanco.setPessoa(agenda.getPessoa());
         agendaBanco.setDataHora(agenda.getDataHora());
-        agendaBanco.setPlano(agenda.getPlano());
-        agendaBanco.setValor(agenda.getValor());
 
         return agendaRepository.save(agendaBanco);
     }

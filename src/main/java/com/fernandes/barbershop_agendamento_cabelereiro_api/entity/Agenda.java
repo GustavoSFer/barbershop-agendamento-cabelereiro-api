@@ -20,8 +20,6 @@ public class Agenda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dataHora;
-    private double valor;
-    private boolean pago;
 
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
@@ -31,7 +29,4 @@ public class Agenda implements Serializable {
     @JoinColumn(name = "corte_id")
     private Corte corte;
 
-    @ManyToOne
-    @JoinColumn(name = "plano_id", nullable = true)
-    private Plano plano;
 }

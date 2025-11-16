@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Builder
@@ -29,12 +30,8 @@ public class Plano implements Serializable {
     @NotNull(message = "Deve informar se o plano esta ativo ou não")
     private boolean ativo;
 
-    @ManyToOne
+    @OneToMany(mappedBy = "plano")
     @JsonIgnore
-    @JoinColumn(name = "pessoa_id")
-    private Pessoa pessoa;
+    private List<Assinatura> assinaturas;
 
-    public boolean getAtivo() {
-        return this.ativo;
-    }
 }

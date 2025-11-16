@@ -33,9 +33,9 @@ public class Pessoa implements Serializable {
 
     @JsonIgnore
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Plano> planos;
+    private List<Agenda> agendas;
 
     @JsonIgnore
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Agenda> agendas;
+    private List<Assinatura> assinaturas;
 }
