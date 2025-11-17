@@ -1,5 +1,6 @@
 package com.fernandes.barbershop_agendamento_cabelereiro_api.controller;
 
+import com.fernandes.barbershop_agendamento_cabelereiro_api.dto.AssinaturaDTO;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Assinatura;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.service.interfaces.AgendaInterface;
 import jakarta.validation.Valid;
@@ -18,7 +19,7 @@ public class AssinaturaController {
     private AgendaInterface agendaService;
 
     @PostMapping
-    public ResponseEntity<Assinatura> criarAssinatura(@Valid @RequestBody Assinatura assinatura) {
+    public ResponseEntity<Assinatura> criarAssinatura(@Valid @RequestBody AssinaturaDTO assinaturaDTO) {
 
 
         return null;
