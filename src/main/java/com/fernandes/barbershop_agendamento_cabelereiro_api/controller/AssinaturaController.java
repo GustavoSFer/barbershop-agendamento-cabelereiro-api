@@ -3,6 +3,7 @@ package com.fernandes.barbershop_agendamento_cabelereiro_api.controller;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.dto.AssinaturaDTO;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.entity.Assinatura;
 import com.fernandes.barbershop_agendamento_cabelereiro_api.service.interfaces.AgendaInterface;
+import com.fernandes.barbershop_agendamento_cabelereiro_api.service.interfaces.AssinaturaInterface;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class AssinaturaController {
 
     @Autowired
-    private AgendaInterface agendaService;
+    private AssinaturaInterface assinaturaInterface;
 
     @PostMapping
     public ResponseEntity<Assinatura> criarAssinatura(@Valid @RequestBody AssinaturaDTO assinaturaDTO) {
 
+        Assinatura assinatura = assinaturaInterface.criarAssinatura(assinaturaDTO);
 
-        return null;
+        return ResponseEntity.ok().body(assinatura);
     }
 
 }
