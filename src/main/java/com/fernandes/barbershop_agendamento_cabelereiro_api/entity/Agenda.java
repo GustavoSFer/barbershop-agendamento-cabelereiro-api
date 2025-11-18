@@ -25,8 +25,4 @@ public class Agenda implements Serializable {
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
-    @ManyToOne
-    @JoinColumn(name = "corte_id")
-    private Corte corte;
-
 }
